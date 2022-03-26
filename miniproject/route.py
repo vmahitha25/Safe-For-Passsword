@@ -2,9 +2,9 @@ import os
 import secrets
 from PIL import Image
 from flask import render_template, url_for, flash, redirect, request, session, abort
-from miniproject import app, db, bcrypt
-from miniproject.form import Register, Login, Segment, UpdateAccountForm, AdminLogin
-from miniproject.models import User, Data
+from app import app, db, bcrypt
+from app.form import Register, Login, Segment, UpdateAccountForm, AdminLogin
+from app.models import User, Data
 from flask_login import login_user, current_user, logout_user, login_required
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
