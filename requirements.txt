@@ -36,4 +36,3 @@ flask_login
 wtforms
 wtforms.validators
 flask_admin
-flask_admin.contrib.sqla
