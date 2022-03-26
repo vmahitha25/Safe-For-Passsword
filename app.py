@@ -11,7 +11,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://uszpawccfbwmuc:91e25b7436cc8
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
-login_manager.login_message_category = 'info
+login_manager.login_message_category = 'info'
 
 db = SQLAlchemy(app)
 if __name__ == '__main__':
