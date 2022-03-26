@@ -36,3 +36,4 @@ flask_login
 wtforms
 wtforms.validators
 flask_admin
+email_validator
