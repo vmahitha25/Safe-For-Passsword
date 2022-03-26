@@ -49,12 +49,6 @@ python-lsp-server==1.2.4
 python-slugify
 pytz==2021.3
 PyWavelets
-pywin32==228
-pywin32-ctypes
-pywinpty
-PyYAML==6.0
-pyzmq
-regex
 requests
 SQLAlchemy
 testpath
