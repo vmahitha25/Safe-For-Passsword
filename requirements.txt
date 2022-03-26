@@ -28,3 +28,13 @@ testpath
 text-unidecode
 urllib3==1.26.7
 Werkzeug
+flask_sqlalchemy
+flask_bcrypt
+flask_login
+flask_wtf
+flask_wtf.file
+flask_login
+wtforms
+wtforms.validators
+flask_admin
+flask_admin.contrib.sqla
