@@ -1,0 +1,57 @@
+{% extends "Layout.html" %}
+{% block content %}
+<head>
+<!--    <link rel="shortcut icon" href="static/Icon/i1.ico">-->
+</head>
+<body>
+<header class="site-header" >
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background:#134466; height: 65px "  >
+        <div class="container">
+            <font face="Comic Sans MS" >
+            <b><h1  class="navbar-brand mr-4" style="font-size: 30px"  >Password Safe</h1></b>
+            </font>
+            <div class="navbar-nav" >
+                {% if current_user.is_authenticated %}
+                       <a class="nav-item nav-link" href="{{ url_for('home') }} " style= "color: #00ffff; font-size: 19px;">Home</a>
+                       <a class="nav-item nav-link" href="{{ url_for('new_segment') }}"  style= " font-size: 18.5px;">New Segment</a>
+                       <a class="nav-item nav-link" href="{{ url_for('account') }}"  style= " font-size: 18.5px;" >Account</a>
+                       <a class="nav-item nav-link" href="{{ url_for('logout') }}"  style= "font-size: 18.5px;" >Logout</a>
+                {% endif%}
+            </div>
+        </div>
+      </nav>
+</header>
+<font face="Comic Sans MS">
+<div class="card" style="width: 18rem;  width: 65%; position: absolute; margin-left: -10%; margin-top: 5%; color: black">
+    <h5 class="card-header" style="text-align: center">Welcome to your Account <br> {{user.name}}!</h5>
+    <div class="card-body">
+            <h6 class="card-subtitle mb-2 text-muted"><span style="color: #333333; font-size: 19px">How to save your Passwords?</span></h6> <br>
+            <span style="font-size: 20px">
+            <p class="card-text">Follow Three Simple steps to get started!</p>
+            <p class="card-text">1. Start saving your passwords by creating a Segment by clicking on the New Segment Tab.</p>
+            <p class="card-text">2. If you wish to edit your segment simply click on the Segment's name and update your details and see the changes in your Home Page.</p>
+            <p class="card-text">3. To access your password click on the Eye icon and enter the passcode set at the time of Registration. Unless the correct passcode is entered you will be UNABLE to access your saved passwords. </p>
+            </span>
+    </div>
+</div>
+</font>
+<div class="container" style=" position: absolute; width: 75% ;margin-left: 80%; ">
+<title>Home</title>
+    <font face="Comic Sans MS">
+        <h4 style="color:black"> Save your passwords here</h4>
+        <br>
+    </font>
+    {% for post in posts %}
+        <div class="card" style="background-color:white; margin-left:0%; margin-right:45%; margin-bottom: 5%; padding: 5px; width:500px; height:225px;  ">
+            <div class="card-body" >
+                <a class="mr-2" href="{{ url_for('user_data', email=post.author.email) }}">{{ post.author.segment_name }}</a>
+                <h2><a class="card-title" style="color:black" href="{{ url_for('segment', post_id=post.id, user_id=user.id) }}">{{ post.segment_name }}</a></h2>
+                <hr>
+                <h5 class="card-text" style="color:black">Username/Email: {{ post.username }}</h5>
+                <h5 class="card-text" style="color:black">Password:  <input type="password" value = "{{ post.password }}" disabled style=" color:black; border-top-style: hidden; border-right-style: hidden; border-left-style: hidden; border-bottom-style: hidden; background: white"></h5>
+            </div>
+         </div>
+    {% endfor %}
+{% endblock content %}
+
+</div>

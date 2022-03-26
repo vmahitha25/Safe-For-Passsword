@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% block content %}
+    <header class="site-header" >
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top" style="background:#134466; height: 65px "  >
+        <div class="container">
+            <font face="Comic Sans MS" >
+            <b><h1  class="navbar-brand mr-4" style="font-size: 30px"  >Password Safe</h1></b>
+            </font>
+            <div class="navbar-nav" >
+                {% if current_user.is_authenticated %}
+                       <a class="nav-item nav-link" href="{{ url_for('home') }} " style= " font-size: 19px;">Home</a>
+                       <a class="nav-item nav-link" href="{{ url_for('new_segment') }}"  style= " font-size: 18.5px;">New Segment</a>
+                       <a class="nav-item nav-link" href="{{ url_for('account') }}"  style= "color: #00ffff; font-size: 18.5px;" >Account</a>
+                       <a class="nav-item nav-link" href="{{ url_for('logout') }}"  style= "font-size: 18.5px;" >Logout</a>
+                {% endif%}
+            </div>
+        </div>
+      </nav>
+    </header>
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ image_file }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ current_user.name }}</h2>
+          <p class="text-secondary">{{ current_user.email }}</p>
+        </div>
+      </div>
+        <form method="POST" action="" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group" style="margin-left:10%; margin-right:10%;">
+                <legend class="border-bottom mb-4">Personal Info</legend>
+                <div class="form-group">
+                    {{ form.name.label(class="form-control-label") }}
+                    {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.name(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.email.label(class="form-control-label") }}
+                    {% if form.email.errors %}
+                        {{ form.email(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.email(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.phone.label(class="form-control-label") }}
+
+                    {% if form.phone.errors %}
+                        {{ form.phone(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.phone.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.phone(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.picture.label() }}
+                    {{ form.picture(class="form-control-file") }}
+                    {% if form.picture.errors %}
+                        {% for error in form.picture.errors %}
+                            <span class="text-danger">{{ error }}</span></br>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </fieldset>
+            <div class="form-group" >
+                {{ form.submit(class="btn btn-outline-info ",style="margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:7%") }}
+            </div>
+        </form>
+    </div>
+{% endblock content %}

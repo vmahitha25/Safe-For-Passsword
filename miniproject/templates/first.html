@@ -1,0 +1,66 @@
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=, initial-scale=1.0">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {% if title %}
+        <title>Password Safe - {{ title }}</title>
+    {% else %}
+        <title>Password Safe</title>
+    {% endif %}
+
+</head>
+
+<body style="background: #f5f5f5">
+<!--<body style="background-image: url('static/first/.jpg')">-->
+    <div class="container" id="container" style="background-color: white; border-top-right-radius: 30px; border-bottom-right-radius: 30px; position: relative; width: 460px; height: 575px; max-width: 100%; min-height: 480px; margin-top:5.5%; margin-left:51%">
+        <div class="form-container" style="position: absolute; top: 0; height: 100%; margin-left: 20%">
+          <form method="POST" style="margin-top:45%;">
+              <div align="middle" style="margin-top: -30%">
+                  <i class="fa fa-user" aria-hidden="true" style="font-size: 100px"></i>
+              </div>
+              <hr>
+              <br>
+              <font face="Comic Sans MS">
+                  <h3 style="text-align:center; ">New User?</h3>
+                      <div class="form-group">
+                           <button type="button" class="btn btn-outline-info btn-lg" onclick="location.href='{{url_for('register')}}'" style="margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:0%">Register</button>
+                      </div>
+                  <br>
+                  <h3 style="text-align:center;">Already a member?</h3>
+                  <div class="form-group">
+                     <div class ="wrapper">
+                         <button type="button" class="btn btn-outline-info btn-lg" onclick="location.href='{{url_for('login')}}'" style="margin-left:auto;margin-right:auto;display:block;margin-top:5%;margin-bottom:5%">Login</button>
+                    </div>
+                  </div>
+              </font>
+          </form>
+       </div>
+    </div>
+
+    <div class="container" id="container1" style="border-radius:10px;  position: relative; width: 495px; height: 76.07% ; margin-top:-37.4%; margin-left:17.7%">
+        <div class="about-container" style="position: absolute; border-top-left-radius: 30px; border-bottom-left-radius: 30px; background: #007ba7;  height: 100%; width: 103.512%;">
+            <br>
+            <br>
+             <font face="Comic Sans MS">
+             <h2 style="text-align: center; color: #f5f5f5">Welcome to Password Safe!</h2>
+            <br>
+            <div align="middle">
+                  <img align="middle" src="static/first/user2.png">
+            </div>
+            <br>
+            <br>
+                <p style="text-align: center; color: #f5f5f5; font-size: 18.5; line-height:185%; margin-right:2%; margin-left:2%">A place where you can save all your passwords securely. You are just one step away from Total Security! Register Today and you will not have to worry about remembering all your passwords ever again or Login to your account and have access to your Saved Passwords.</p>
+            </font>
+        </div>
+    </div>
+   <script src="bootstrap-4.0.0-alpha.6-dist/js/bootstrap.min.js"></script>
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+</body>
+</html>
